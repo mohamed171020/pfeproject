@@ -4,7 +4,7 @@ dotenv.config({ path: '.env' });
 
 
 if (!process.env.NEXT_PUBLIC_DATABASE_URL) {
-  console.log('🔴 Cannot find database url');
+  console.log('🔴 Cannot find database vurl');
 }
 
 export default {
