@@ -5,6 +5,10 @@ import "./globals.css";
 import db from "@/lib/supabase/db";
 import { ThemeProvider } from "@/lib/providers/next-theme-provider";
 import { twMerge } from "tailwind-merge";
+import { SupabaseUserProvider } from "@/lib/providers/supabase-user-provider";
+import AppStateProvider from "@/lib/providers/state-provider";
+import { SocketProvider } from "@/lib/providers/socket-provider";
+import { Toaster } from "@/components/ui/toaster";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -39,7 +43,15 @@ export default function RootLayout({
        attribute='class' 
        defaultTheme='dark' 
        enableSystem > 
-        {children}
+
+       <AppStateProvider>
+            <SupabaseUserProvider>
+              <SocketProvider>
+                {children}
+              <Toaster />
+              </SocketProvider>
+            </SupabaseUserProvider>
+          </AppStateProvider>
         </ThemeProvider>
        
       </body>

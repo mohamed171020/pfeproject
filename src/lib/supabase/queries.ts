@@ -28,7 +28,7 @@ export const getUserSubscriptionStatus = async (userId: string) => {
     const data = await db.query.subscriptions.findFirst({
       where: (s, { eq }) => eq(s.userId, userId),
     });
-    console.log("ddadadad",data);
+    // console.log("ddadadad",data);
     if (data) return { data: data as Subscription, error: null };
     else return { data: null, error: null };
   } catch (error) {
@@ -54,6 +54,8 @@ export const getFolders = async (workspaceId: string) => {
       .where(eq(folders.workspaceId, workspaceId));
     return { data: results, error: null };
   } catch (error) {
+    console.log("getfolder catch triggered",error);
+    
     return { data: null, error: 'Error' };
   }
 };

@@ -10,7 +10,7 @@ import {
 } from 'react';
 import { useSupabaseUser } from './supabase-user-provider';
 import { getUserSubscriptionStatus } from '../supabase/queries';
-import SubscriptionModal from '@/components/global/subscription-modal';
+// import SubscriptionModal from '@/components/global/subscription-modal';
 import { ProductWirhPrice } from '../supabase/supabase.types';
 
 type SubscriptionModalContextType = {
@@ -39,7 +39,7 @@ export const SubscriptionModalProvider = ({
   return (
     <SubscriptionModalContext.Provider value={{ open, setOpen }}>
       {children}
-      <SubscriptionModal products={products} />
+      {/* <SubscriptionModal products={products} /> */}
     </SubscriptionModalContext.Provider>
   );
 };

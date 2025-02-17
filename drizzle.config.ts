@@ -10,7 +10,8 @@ if (!process.env.NEXT_PUBLIC_DATABASE_URL) {
 export default {
   schema: './src/lib/supabase/schema.ts',
   out: './migrations',
-  driver: 'pg',
+  // dialect: 'postgresql',
+   driver: 'pg',
   
   dbCredentials: {
     connectionString: process.env.NEXT_PUBLIC_DATABASE_URL || '',
